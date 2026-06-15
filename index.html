@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食堂点餐系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">🍽️ 食堂点餐</h1>
+                <div class="time-info">
+                    <span class="current-time" id="currentTime"></span>
+                    <span class="peak-warning" id="peakWarning"></span>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <!-- 左侧菜品区 -->
+            <div class="menu-container">
+                <!-- 泡馍专区 -->
+                <section class="menu-section">
+                    <div class="location-header">
+                        <h2 class="section-title">🥘 西北风味档口</h2>
+                        <span class="location-badge">📍 银泉食堂二楼</span>
+                    </div>
+                    <div class="limit-notice">⚠️ 该档口单人限购2份（不分大小份）</div>
+                    <div class="menu-grid">
+                        <!-- 羊肉泡馍 -->
+                        <div class="menu-item" data-id="yangroupaomo-small" data-category="paomo">
+                            <div class="menu-image">
+                                <img src="羊肉泡馍.jpg" alt="羊肉泡馍小份" onerror="this.src='https://via.placeholder.com/300x200?text=羊肉泡馍'">
+                            </div>
+                            <div class="menu-info">
+                                <h3 class="menu-name">羊肉泡馍</h3>
+                                <p class="menu-size">小份</p>
+                                <p class="menu-description">传统陕西美食，汤浓肉烂</p>
+                                <div class="menu-meta">
+                                    <span class="menu-price">¥19.00</span>
+                                    <span class="menu-wait-time">预计制作: <span class="wait-minutes">5</span>分钟</span>
+                                </div>
+                                <div class="menu-actions">
+                                    <button class="quantity-btn minus" onclick="changeQuantity('yangroupaomo-small', -1)">-</button>
+                                    <span class="quantity" id="quantity-yangroupaomo-small">0</span>
+                                    <button class="quantity-btn plus" onclick="changeQuantity('yangroupaomo-small', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 羊肉泡馍大份 -->
+                        <div class="menu-item" data-id="yangroupaomo-large" data-category="paomo">
+                            <div class="menu-image">
+                                <img src="羊肉泡馍.jpg" alt="羊肉泡馍大份" onerror="this.src='https://via.placeholder.com/300x200?text=羊肉泡馍'">
+                            </div>
+                            <div class="menu-info">
+                                <h3 class="menu-name">羊肉泡馍</h3>
+                                <p class="menu-size">大份</p>
+                                <p class="menu-description">传统陕西美食，汤浓肉烂，分量更足</p>
+                                <div class="menu-meta">
+                                    <span class="menu-price">¥28.00</span>
+                                    <span class="menu-wait-time">预计制作: <span class="wait-minutes">6</span>分钟</span>
+                                </div>
+                                <div class="menu-actions">
+                                    <button class="quantity-btn minus" onclick="changeQuantity('yangroupaomo-large', -1)">-</button>
+                                    <span class="quantity" id="quantity-yangroupaomo-large">0</span>
+                                    <button class="quantity-btn plus" onclick="changeQuantity('yangroupaomo-large', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 牛肉泡馍小份 -->
+                        <div class="menu-item" data-id="niupaomo-small" data-category="paomo">
+                            <div class="menu-image">
+                                <img src="牛肉泡馍.jpg" alt="牛肉泡馍小份" onerror="this.src='https://via.placeholder.com/300x200?text=牛肉泡馍'">
+                            </div>
+                            <div class="menu-info">
+                                <h3 class="menu-name">牛肉泡馍</h3>
+                                <p class="menu-size">小份</p>
+                                <p class="menu-description">精选牛肉，香浓可口</p>
+                                <div class="menu-meta">
+                                    <span class="menu-price">¥19.00</span>
+                                    <span class="menu-wait-time">预计制作: <span class="wait-minutes">5</span>分钟</span>
+                                </div>
+                                <div class="menu-actions">
+                                    <button class="quantity-btn minus" onclick="changeQuantity('niupaomo-small', -1)">-</button>
+                                    <span class="quantity" id="quantity-niupaomo-small">0</span>
+                                    <button class="quantity-btn plus" onclick="changeQuantity('niupaomo-small', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 牛肉泡馍大份 -->
+                        <div class="menu-item" data-id="niupaomo-large" data-category="paomo">
+                            <div class="menu-image">
+                                <img src="牛肉泡馍.jpg" alt="牛肉泡馍大份" onerror="this.src='https://via.placeholder.com/300x200?text=牛肉泡馍'">
+                            </div>
+                            <div class="menu-info">
+                                <h3 class="menu-name">牛肉泡馍</h3>
+                                <p class="menu-size">大份</p>
+                                <p class="menu-description">精选牛肉，香浓可口，分量更足</p>
+                                <div class="menu-meta">
+                                    <span class="menu-price">¥28.00</span>
+                                    <span class="menu-wait-time">预计制作: <span class="wait-minutes">6</span>分钟</span>
+                                </div>
+                                <div class="menu-actions">
+                                    <button class="quantity-btn minus" onclick="changeQuantity('niupaomo-large', -1)">-</button>
+                                    <span class="quantity" id="quantity-niupaomo-large">0</span>
+                                    <button class="quantity-btn plus" onclick="changeQuantity('niupaomo-large', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 披萨专区 -->
+                <section class="menu-section">
+                    <div class="location-header">
+                        <h2 class="section-title">🍕 西餐厅档口</h2>
+                        <span class="location-badge">📍 银泉食堂一楼</span>
+                    </div>
+                    <div class="limit-notice">⚠️ 该档口单人限购2份（不分品类）</div>
+                    <div class="menu-grid">
+                        <!-- 玛格丽特披萨 -->
+                        <div class="menu-item" data-id="margherita-pizza" data-category="pizza">
+                            <div class="menu-image">
+                                <img src="玛格丽特披萨.jpg" alt="玛格丽特披萨" onerror="this.src='https://via.placeholder.com/300x200?text=玛格丽特披萨'">
+                            </div>
+                            <div class="menu-info">
+                                <h3 class="menu-name">玛格丽特披萨</h3>
+                                <p class="menu-description">经典意式风味，番茄与马苏里拉芝士</p>
+                                <div class="menu-meta">
+                                    <span class="menu-price">¥16.00</span>
+                                    <span class="menu-wait-time">预计制作: <span class="wait-minutes">8</span>分钟</span>
+                                </div>
+                                <div class="menu-actions">
+                                    <button class="quantity-btn minus" onclick="changeQuantity('margherita-pizza', -1)">-</button>
+                                    <span class="quantity" id="quantity-margherita-pizza">0</span>
+                                    <button class="quantity-btn plus" onclick="changeQuantity('margherita-pizza', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 菠萝披萨 -->
+                        <div class="menu-item" data-id="pineapple-pizza" data-category="pizza">
+                            <div class="menu-image">
+                                <img src="菠萝披萨.jpg" alt="菠萝披萨" onerror="this.src='https://via.placeholder.com/300x200?text=菠萝披萨'">
+                            </div>
+                            <div class="menu-info">
+                                <h3 class="menu-name">菠萝披萨</h3>
+                                <p class="menu-description">甜美菠萝搭配火腿，清爽可口</p>
+                                <div class="menu-meta">
+                                    <span class="menu-price">¥18.00</span>
+                                    <span class="menu-wait-time">预计制作: <span class="wait-minutes">8</span>分钟</span>
+                                </div>
+                                <div class="menu-actions">
+                                    <button class="quantity-btn minus" onclick="changeQuantity('pineapple-pizza', -1)">-</button>
+                                    <span class="quantity" id="quantity-pineapple-pizza">0</span>
+                                    <button class="quantity-btn plus" onclick="changeQuantity('pineapple-pizza', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 榴莲披萨 -->
+                        <div class="menu-item" data-id="durian-pizza" data-category="pizza">
+                            <div class="menu-image">
+                                <img src="榴莲披萨.jpg" alt="榴莲披萨" onerror="this.src='https://via.placeholder.com/300x200?text=榴莲披萨'">
+                            </div>
+                            <div class="menu-info">
+                                <h3 class="menu-name">榴莲披萨</h3>
+                                <p class="menu-description">浓郁榴莲香气，芝士拉丝</p>
+                                <div class="menu-meta">
+                                    <span class="menu-price">¥25.00</span>
+                                    <span class="menu-wait-time">预计制作: <span class="wait-minutes">10</span>分钟</span>
+                                </div>
+                                <div class="menu-actions">
+                                    <button class="quantity-btn minus" onclick="changeQuantity('durian-pizza', -1)">-</button>
+                                    <span class="quantity" id="quantity-durian-pizza">0</span>
+                                    <button class="quantity-btn plus" onclick="changeQuantity('durian-pizza', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右侧订单区 -->
+            <aside class="order-section">
+                <div class="order-card">
+                    <h2 class="section-title">我的订单</h2>
+                    <div class="order-items" id="orderItems">
+                        <p class="empty-cart">请选择菜品</p>
+                    </div>
+                    
+                    <div class="location-summary" id="locationSummary" style="display: none;">
+                        <div class="summary-section">
+                            <h4>🥘 银泉食堂二楼</h4>
+                            <div class="summary-row">
+                                <span>泡馍数量:</span>
+                                <span id="paomoQuantity">0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>前面等待:</span>
+                                <span id="paomoQueueCount">0</span>人
+                            </div>
+                            <div class="summary-row">
+                                <span>档口等待:</span>
+                                <span id="paomoQueueTime">0</span>分钟
+                            </div>
+                        </div>
+                        <div class="summary-section">
+                            <h4>🍕 银泉食堂一楼</h4>
+                            <div class="summary-row">
+                                <span>披萨数量:</span>
+                                <span id="pizzaQuantity">0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>前面等待:</span>
+                                <span id="pizzaQueueCount">0</span>人
+                            </div>
+                            <div class="summary-row">
+                                <span>档口等待:</span>
+                                <span id="pizzaQueueTime">0</span>分钟
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-summary">
+                        <div class="summary-row">
+                            <span>菜品数量:</span>
+                            <span id="totalQuantity">0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>预估等待:</span>
+                            <span class="total-wait-time" id="totalWaitTime">0分钟</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>总价:</span>
+                            <span class="total-price" id="totalPrice">¥0.00</span>
+                        </div>
+                    </div>
+                    <button class="submit-btn" id="submitBtn" onclick="submitOrder()" disabled>
+                        提交订单
+                    </button>
+                </div>
+            </aside>
+        </div>
+
+        <!-- 提示弹窗 -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <div class="modal-body" id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
