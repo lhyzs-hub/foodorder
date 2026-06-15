@@ -413,6 +413,9 @@ function updateOrderDisplay() {
     
     // 更新订单汇总中的排队信息
     updateOrderSummaryQueueInfo();
+    
+    // 更新手机端订单按钮数量
+    updateMobileOrderCount();
 }
 
 // 提交订单
@@ -590,5 +593,45 @@ window.onclick = function(event) {
     const modal = document.getElementById('modal');
     if (event.target === modal) {
         closeModal();
+    }
+}
+
+// 手机端订单显示切换
+function toggleMobileOrder() {
+    const orderSection = document.querySelector('.order-section');
+    const mobileOrderBtn = document.getElementById('mobileOrderBtn');
+    
+    if (orderSection.classList.contains('show')) {
+        orderSection.classList.remove('show');
+        mobileOrderBtn.classList.remove('active');
+    } else {
+        orderSection.classList.add('show');
+        mobileOrderBtn.classList.add('active');
+    }
+}
+
+// 更新手机端订单按钮数量
+function updateMobileOrderCount() {
+    const mobileOrderCount = document.getElementById('mobileOrderCount');
+    const mobileOrderBtn = document.getElementById('mobileOrderBtn');
+    const totalQuantity = getTotalQuantity();
+    
+    if (mobileOrderCount) {
+        mobileOrderCount.textContent = totalQuantity;
+    }
+    
+    // 根据是否有订单显示/隐藏按钮
+    if (mobileOrderBtn) {
+        if (totalQuantity > 0) {
+            mobileOrderBtn.style.display = 'flex';
+        } else {
+            mobileOrderBtn.style.display = 'none';
+            // 如果订单区域是展开的，关闭它
+            const orderSection = document.querySelector('.order-section');
+            if (orderSection && orderSection.classList.contains('show')) {
+                orderSection.classList.remove('show');
+                mobileOrderBtn.classList.remove('active');
+            }
+        }
     }
 }

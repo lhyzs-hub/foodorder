@@ -855,3 +855,122 @@ body {
         padding: 6px;
     }
 }
+
+/* 手机端浮动订单按钮 */
+.mobile-order-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-order-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.5);
+}
+
+.mobile-order-btn.active {
+    background: linear-gradient(135deg, var(--success-color), #27ae60);
+}
+
+.mobile-order-icon {
+    font-size: 1.5rem;
+}
+
+.mobile-order-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mobile-order-count {
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: white;
+    color: var(--primary-color);
+    padding: 2px 8px;
+    border-radius: 10px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.mobile-order-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* 手机端订单区域默认隐藏 */
+@media (max-width: 768px) {
+    .mobile-order-btn {
+        display: flex;
+    }
+
+    .order-section {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+        background: white;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.15);
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+
+    .order-section.show {
+        transform: translateY(0);
+    }
+
+    .order-card {
+        border-radius: 20px 20px 0 0;
+        max-height: 70vh;
+        padding: 20px;
+    }
+
+    .order-items {
+        max-height: 250px;
+    }
+
+    /* 隐藏右侧栏的默认布局 */
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .order-section:not(.show) {
+        display: none;
+    }
+}
+
+/* 小屏手机优化 */
+@media (max-width: 480px) {
+    .mobile-order-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 12px 18px;
+    }
+
+    .mobile-order-icon {
+        font-size: 1.3rem;
+    }
+
+    .mobile-order-count {
+        font-size: 1.1rem;
+    }
+
+    .mobile-order-text {
+        font-size: 0.7rem;
+    }
+}
