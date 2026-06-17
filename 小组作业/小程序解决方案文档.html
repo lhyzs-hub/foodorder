@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word'>
+<head>
+<meta charset="UTF-8">
+<title>食堂线上点餐小程序 - 解决方案文档</title>
+<style>
+    body { font-family: "微软雅黑", "SimHei", sans-serif; line-height: 1.8; margin: 0; padding: 40px; background: white; }
+    h1 { color: #E74C3C; text-align: center; border-bottom: 3px solid #E74C3C; padding-bottom: 15px; }
+    h2 { color: #2C3E50; margin-top: 30px; border-left: 4px solid #E74C3C; padding-left: 15px; }
+    h3 { color: #34495E; margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+    th { background: #F8F9FA; color: #2C3E50; }
+    .highlight { background: #FFF8E1; padding: 15px; border-radius: 8px; border-left: 4px solid #F39C12; }
+    .checkmark { color: #27AE60; font-weight: bold; }
+    .section { margin-bottom: 30px; }
+    .center { text-align: center; }
+    .emphasis { color: #E74C3C; font-weight: bold; }
+</style>
+</head>
+<body>
+<!--[if gte mso 9]><xml>
+<w:WordDocument>
+<w:View>Print</w:View>
+<w:Zoom>100</w:Zoom>
+<w:DoNotOptimizeForBrowser/>
+</w:WordDocument>
+</xml><![endif]-->
+
+<h1>食堂线上点餐小程序 - 解决方案文档</h1>
+
+<div class="section">
+<h2>一、痛点描述</h2>
+
+<h3>1.1 问题背景</h3>
+<p>每周一至周五的就餐高峰时段（午餐12:00-12:30，晚餐18:00-18:30），在学校食堂现做披萨、泡馍等特色档口，由于档口采取"即点即做、按序出餐"模式，且不对单人点餐数量设限，当前方排队一次性代购4-5份披萨时，档口产能被大额订单独占，后续排队同学的等待时间从预期的3-5分钟骤增至15-20分钟。</p>
+
+<h3>1.2 核心痛点</h3>
+<ul>
+    <li><strong>等待时间不确定</strong>：排队过程中无任何等待时长提示</li>
+    <li><strong>决策困难</strong>：学生无法提前判断今天是否能按时吃上饭</li>
+    <li><strong>两难处境</strong>：点了饭菜不能走，但又怕等太久会迟到</li>
+    <li><strong>时间浪费</strong>：部分同学因取餐延误导致课程迟到，或放弃排队后白白浪费时间</li>
+    <li><strong>人群影响</strong>：主要影响全天满课、通勤时间紧张的大一至大三学生，尤其在期末考试周等食堂人流量较大时期，日均波及约30-50人</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>二、解决方案</h2>
+
+<h3>2.1 做什么？</h3>
+<p><span class="emphasis">开发食堂线上点餐小程序</span>，实现以下核心功能：</p>
+<ul>
+    <li>羊肉泡馍、牛肉泡馍、披萨等特色菜品的线上点餐</li>
+    <li>实时显示各档口排队人数和预估等待时间</li>
+    <li>分档口独立限购机制，防止大额订单独占产能</li>
+    <li>订单提交前的等待时间确认，帮助学生做出明智选择</li>
+</ul>
+
+<h3>2.2 怎么做？（操作流程）</h3>
+
+<p><strong>第一步：菜品选择与排队信息展示</strong></p>
+<ul>
+    <li>用户打开小程序，浏览泡馍档口和披萨档口的菜品</li>
+    <li>每个菜品展示价格、制作时间等信息</li>
+    <li>首页实时显示各档口当前排队人数</li>
+</ul>
+
+<p><strong>第二步：加入购物车与限购控制</strong></p>
+<ul>
+    <li>用户选择菜品规格（大小份），加入购物车</li>
+    <li>系统自动检测各档口限购数量，单个档口最多购买2份</li>
+    <li>购物车实时更新订单总价和预估等待时间</li>
+</ul>
+
+<p><strong>第三步：订单确认与提交</strong></p>
+<ul>
+    <li>用户点击浮动订单按钮查看订单详情</li>
+    <li>订单页面清晰展示：前方等待人数、前面等待时间、当前订单制作时间、最终等待时间</li>
+    <li>用户确认后提交订单，获得取餐号和预计取餐时间</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>三、能解决什么问题？</h2>
+
+<h3>3.1 解决等待时间不确定问题</h3>
+<p><strong>问题现状</strong>：排队过程中无任何等待时长提示，学生无法预知需要等待多久。</p>
+<p><strong>解决方案效果</strong>：</p>
+<div class="highlight">
+    <p><span class="checkmark">✓</span> 实时显示各档口前方等待人数（根据高峰时段智能生成合理数字）</p>
+    <p><span class="checkmark">✓</span> 精确计算前面所有人的等待时间总和</p>
+    <p><span class="checkmark">✓</span> 综合计算最终等待时间（前面等待时间 + 当前订单制作时间）</p>
+    <p><span class="checkmark">✓</span> 界面清晰展示三个关键数据：等待人数、等待时间总和、最终等待时间</p>
+    <p><span class="checkmark">✓</span> 等待时间超过20分钟时显示温馨提醒，帮助用户决策</p>
+</div>
+<p><strong>预期效果</strong>：学生可以提前了解等待时间，避免盲目排队，日均减少约30-50人因等待时间过长导致的时间浪费。</p>
+
+<h3>3.2 解决大额订单独占档口产能问题</h3>
+<p><strong>问题现状</strong>：不对单人点餐数量设限，前方一次性代购4-5份披萨会导致后续同学等待时间骤增。</p>
+<p><strong>解决方案效果</strong>：</p>
+<div class="highlight">
+    <p><span class="checkmark">✓</span> 建立分档口独立限购机制（每个档口最多购买2份）</p>
+    <p><span class="checkmark">✓</span> 银泉食堂二楼泡馍档口独立限购</p>
+    <p><span class="checkmark">✓</span> 银泉食堂一楼披萨档口独立限购</p>
+    <p><span class="checkmark">✓</span> 有效防止大额订单独占产能，保障公平性</p>
+</div>
+<p><strong>预期效果</strong>：避免因大额订单导致的等待时间急剧增加，将峰值等待时间从15-20分钟控制在合理范围内（8-12分钟）。</p>
+
+<h3>3.3 解决决策困难与两难处境问题</h3>
+<p><strong>问题现状</strong>：学生点了饭菜后不能离开，但又担心等待太久导致上课迟到。</p>
+<p><strong>解决方案效果</strong>：</p>
+<div class="highlight">
+    <p><span class="checkmark">✓</span> 订单提交前清晰展示预估等待时间</p>
+    <p><span class="checkmark">✓</span> 颜色提示系统帮助快速判断（绿色≤10分钟，橙色11-20分钟，红色>20分钟）</p>
+    <p><span class="checkmark">✓</span> 手机端优化：先选餐，确认订单后再显示详情</p>
+    <p><span class="checkmark">✓</span> 提交订单后获得明确的取餐时间提示</p>
+</div>
+<p><strong>预期效果</strong>：学生可以根据等待时间做出是否点餐的明智决策，日均减少约20%因迟到放弃取餐的情况。</p>
+
+<h3>3.4 提升就餐体验与效率</h3>
+<p><strong>问题现状</strong>：高峰时段排队拥挤，现场点餐效率低下。</p>
+<p><strong>解决方案效果</strong>：</p>
+<div class="highlight">
+    <p><span class="checkmark">✓</span> 线上点餐避免现场排队</p>
+    <p><span class="checkmark">✓</span> 清晰的菜品分类（泡馍、披萨细分品类）</p>
+    <p><span class="checkmark">✓</span> 响应式设计，支持手机端快速操作</p>
+    <p><span class="checkmark">✓</span> 实时数据更新，信息透明化</p>
+</div>
+<p><strong>预期效果</strong>：提升整体就餐体验，减少现场拥挤，提高食堂运营效率。</p>
+</div>
+
+<div class="section">
+<h2>四、方案优势</h2>
+
+<h3>4.1 低成本</h3>
+<ul>
+    <li>无需额外硬件投入</li>
+    <li>纯软件解决方案，部署在GitHub Pages上免费托管</li>
+    <li>维护成本低，仅需定期更新排队算法</li>
+</ul>
+
+<h3>4.2 易落地</h3>
+<ul>
+    <li>前端技术实现，无需复杂后端开发</li>
+    <li>用户扫码即可使用，无需下载安装</li>
+    <li>可快速复制到其他食堂或档口</li>
+</ul>
+
+<h3>4.3 高收益</h3>
+<ul>
+    <li>日均服务约30-50名受影响学生</li>
+    <li>显著减少因等待时间过长导致的课程迟到</li>
+    <li>提升学生就餐满意度和食堂形象</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>五、预期效果总结</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>指标</th>
+            <th>改善前</th>
+            <th>改善后</th>
+            <th>改善幅度</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>峰值等待时间</td>
+            <td>15-20分钟</td>
+            <td>8-12分钟</td>
+            <td>约40%</td>
+        </tr>
+        <tr>
+            <td>日均受影响人数</td>
+            <td>30-50人</td>
+            <td>显著减少</td>
+            <td>约60%</td>
+        </tr>
+        <tr>
+            <td>迟到放弃取餐率</td>
+            <td>较高</td>
+            <td>降低约20%</td>
+            <td>约20%</td>
+        </tr>
+        <tr>
+            <td>决策难度</td>
+            <td>高（无信息）</td>
+            <td>低（透明信息）</td>
+            <td>显著</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div class="section center" style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd;">
+<p>文档版本：V1.0</p>
+<p>创建日期：2026年6月</p>
+<p>适用场景：食堂就餐场景</p>
+</div>
+
+</body>
+</html>
